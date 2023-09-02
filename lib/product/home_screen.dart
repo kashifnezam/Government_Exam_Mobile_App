@@ -47,7 +47,7 @@ class MyHome extends StatelessWidget {
             elevation: 8,
             child: InkWell(
               onTap: () =>
-                  Get.to(() => const Category(), arguments: category[1]),
+                  Get.to(() => const Category(), arguments: category[0]),
               child: Column(
                 children: [
                   Center(

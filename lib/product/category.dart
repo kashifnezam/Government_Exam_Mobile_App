@@ -25,7 +25,8 @@ class Category extends StatelessWidget {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("pdf")
-            .where("category", isEqualTo: 'books')
+            .where("category",
+                isEqualTo: Get.arguments.toString().toLowerCase())
             .snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
@@ -42,7 +43,7 @@ class Category extends StatelessWidget {
           if (snapshot.data != null) {
             return ListView.builder(
               itemBuilder: (context, index) {
-                return Text(snapshot.data!.docs[index]["name"]);
+                return Text(snapshot.data!.docs[index]["fileName"]);
               },
               itemCount: snapshot.data!.docs.length,
             );
