@@ -1,20 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:government_exam_pdf/auth/auth.dart';
 import 'package:lottie/lottie.dart';
 
-class CreateAccount extends StatelessWidget {
+class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
 
   @override
+  State<CreateAccount> createState() => _CreateAccountState();
+}
+
+class _CreateAccountState extends State<CreateAccount> {
+  @override
   Widget build(BuildContext context) {
+    TextEditingController fullNameController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController mobileController = TextEditingController();
+    TextEditingController passConroller = TextEditingController();
+    TextEditingController cnfPassController = TextEditingController();
+
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          "Account Creation",
+          style: TextStyle(fontSize: 18, letterSpacing: 2),
+        ),
+        backgroundColor: Colors.indigo.shade200,
+      ),
       body: Container(
         alignment: Alignment.center,
-        margin: const EdgeInsets.only(top: 12, left: 38, right: 38),
+        margin: const EdgeInsets.only(top: 12, left: 30, right: 30),
         child: ListView(
           children: [
-            Lottie.asset("assets/animations/signup.json", height: 200),
+            Lottie.asset("assets/animations/signup.json", height: 150),
             TextField(
+              controller: fullNameController,
               decoration: InputDecoration(
                 focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.indigo, width: 2),
@@ -41,9 +62,10 @@ class CreateAccount extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             TextField(
+              controller: emailController,
               decoration: InputDecoration(
                 floatingLabelAlignment: FloatingLabelAlignment.center,
                 labelText: "Email",
@@ -70,9 +92,10 @@ class CreateAccount extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             TextField(
+              controller: mobileController,
               decoration: InputDecoration(
                 floatingLabelAlignment: FloatingLabelAlignment.center,
                 labelText: "Mobile Number",
@@ -99,9 +122,10 @@ class CreateAccount extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             TextField(
+              controller: passConroller,
               decoration: InputDecoration(
                 floatingLabelAlignment: FloatingLabelAlignment.center,
                 labelText: "Password",
@@ -132,9 +156,10 @@ class CreateAccount extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             TextField(
+              controller: cnfPassController,
               decoration: InputDecoration(
                 floatingLabelAlignment: FloatingLabelAlignment.center,
                 labelText: "Confirm Password",
@@ -165,13 +190,18 @@ class CreateAccount extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             SizedBox(
               height: 45,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.back();
+                  // Get.back();
+                  String fullname = fullNameController.text.trim();
+                  String email = emailController.text.trim();
+                  var mobile = mobileController.text.trim();
+                  var pass = passConroller.text.trim();
+                  signUp(fullname, mobile, email, pass);
                 },
                 style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(

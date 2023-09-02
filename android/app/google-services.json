@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "769462914985",
+    "project_id": "magazine-exams",
+    "storage_bucket": "magazine-exams.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769462914985:android:e5a8aad491243ba60efeb8",
+        "android_client_info": {
+          "package_name": "com.example.government_exam_pdf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769462914985-lmfn50365dt9cpc8mknl650463hjtbk2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB61SVsjT7m0ioBDMgOXFySjMV4oRmKcCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769462914985-lmfn50365dt9cpc8mknl650463hjtbk2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
